@@ -1,0 +1,116 @@
+.section {
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 0;
+}
+
+.bgWrapper {
+  position: absolute;
+  inset: 0;
+}
+
+.bgImage {
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(10, 10, 10, 0.92) 0%, rgba(10, 10, 10, 0.6) 50%, rgba(10, 10, 10, 0.85) 100%);
+  z-index: 1;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--section-py) var(--section-px);
+  position: relative;
+  z-index: 2;
+}
+
+.content {
+  max-width: 640px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--duration-anim) var(--ease-out-expo), transform var(--duration-anim) var(--ease-out-expo);
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tag {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
+}
+
+.title {
+  margin-bottom: var(--space-lg);
+}
+
+.highlight {
+  color: var(--color-accent);
+}
+
+.text {
+  font-size: var(--fs-body-lg);
+  color: var(--color-text-muted);
+  max-width: 520px;
+  margin-bottom: var(--space-2xl);
+}
+
+.stats {
+  display: flex;
+  gap: var(--space-3xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.statItem {
+  text-align: left;
+}
+
+.statNumber {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-bold);
+  color: var(--color-accent);
+  line-height: 1;
+  margin-bottom: var(--space-2xs);
+}
+
+.statLabel {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wider);
+  font-weight: var(--fw-medium);
+}
+
+@media (max-width: 767px) {
+  .section {
+    min-height: auto;
+  }
+
+  .stats {
+    gap: var(--space-xl);
+    flex-wrap: wrap;
+  }
+
+  .statItem {
+    flex: 1 1 calc(50% - var(--space-xl));
+  }
+}

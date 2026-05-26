@@ -1,7 +1,9 @@
 import Navbar from "@/components/Navbar/Navbar";
 import Hero from "@/components/Hero/Hero";
+import HeroImageStrip from "@/components/HeroImageStrip/HeroImageStrip";
 import About from "@/components/About/About";
 import Methodology from "@/components/Methodology/Methodology";
+import Results from "@/components/Results/Results";
 import Benefits from "@/components/Benefits/Benefits";
 import Testimonials from "@/components/Testimonials/Testimonials";
 import Pricing from "@/components/Pricing/Pricing";
@@ -16,8 +18,10 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <HeroImageStrip />
         <About />
         <Methodology />
+        <Results />
         <Benefits />
         <Testimonials />
         <Pricing />

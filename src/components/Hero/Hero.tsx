@@ -8,6 +8,17 @@ export default function Hero() {
   return (
     <section className={styles.hero} id="hero">
       <div className={styles.bgPattern} />
+      <div className={styles.imageBlock}>
+        <Image
+          src="/assets/images/Hero-bg.jpg"
+          alt="Transformação"
+          fill
+          className={styles.image}
+          sizes="50vw"
+          priority
+        />
+        <div className={styles.imageFade} />
+      </div>
       <div className={styles.container}>
         <div className={styles.content}>
           <span className={styles.badge}>COACH DE SAÚDE E PERFORMANCE</span>
@@ -53,23 +64,6 @@ export default function Hero() {
               <span className={styles.statNumber}>98%</span>
               <span className={styles.statLabel}>SATISFAÇÃO</span>
             </div>
-          </div>
-        </div>
-
-        <div className={styles.visual}>
-          <div className={styles.imageWrapper}>
-            <Image
-              src="/assets/images/hero-bg.png"
-              alt="Transformação"
-              className={styles.image}
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              priority
-            />
-            <div className={styles.imageOverlay} />
-          </div>
-          <div className={styles.glassBox}>
-            <p>RESULTADOS REAIS COM CIÊNCIA E DEDICAÇÃO</p>
           </div>
         </div>
       </div>

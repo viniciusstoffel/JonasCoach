@@ -12,7 +12,7 @@ export default function About() {
       <div className={styles.container}>
         <div className={`${styles.imageCol} ${isVisible ? styles.visible : ''}`}>
           <div className={styles.imageWrapper}>
-            <Image src="/assets/images/coach.png" alt="Jonas Coach" fill sizes="(max-width: 768px) 100vw, 480px" />
+            <Image src="/assets/images/About.jpg" alt="Jonas Coach" fill className={styles.aboutImage} sizes="(max-width: 768px) 100vw, 480px" />
             <div className={styles.imageBorder} />
           </div>
           <div className={styles.badge}>

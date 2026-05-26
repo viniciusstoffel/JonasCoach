@@ -16,6 +16,28 @@
     radial-gradient(ellipse at 20% 50%, rgba(var(--color-accent-rgb), 0.08) 0%, transparent 60%),
     radial-gradient(ellipse at 80% 20%, rgba(var(--color-accent-rgb), 0.04) 0%, transparent 50%);
   pointer-events: none;
+  z-index: 1;
+}
+
+.imageBlock {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50vw;
+  height: 100%;
+  z-index: 0;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+}
+
+.imageFade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--color-bg) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .container {
@@ -25,14 +47,12 @@
   padding: 0 var(--section-px);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-3xl);
   position: relative;
   z-index: 2;
 }
 
 .content {
-  flex: 0 0 52%;
+  flex: 0 0 55%;
   max-width: 580px;
 }
 
@@ -153,62 +173,21 @@
   font-weight: var(--fw-medium);
 }
 
-.visual {
-  flex: 0 0 45%;
-  position: relative;
-}
-
-.imageWrapper {
-  position: relative;
-  height: 65vh;
-  min-height: 400px;
-  max-height: 650px;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-}
-
-.image {
-  object-fit: cover;
-  object-position: center;
-}
-
-.imageOverlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(var(--color-black-rgb), 0.5) 0%, transparent 50%);
-  pointer-events: none;
-}
-
-.glassBox {
-  position: absolute;
-  bottom: var(--space-xl);
-  left: var(--space-xl);
-  right: var(--space-xl);
-  padding: var(--space-md) var(--space-lg);
-  background: rgba(0, 0, 0, 0.7);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  text-align: center;
-}
-
-.glassBox p {
-  font-size: var(--fs-xs);
-  color: var(--color-text-muted);
-  margin: 0;
-  letter-spacing: var(--ls-wider);
-  text-transform: uppercase;
-  font-weight: var(--fw-semibold);
-}
-
 @media (max-width: 767px) {
   .hero {
     min-height: auto;
     padding-top: calc(var(--navbar-h) + var(--space-md));
+    padding-bottom: 0;
+    flex-direction: column;
+    overflow: visible;
+  }
+
+  .imageBlock {
+    display: none;
   }
 
   .container {
-    flex-direction: column;
-    gap: var(--space-xl);
+    order: 1;
   }
 
   .content {
@@ -238,21 +217,13 @@
 
   .stats {
     justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
   }
 
   .statItem {
     text-align: center;
-  }
-
-  .visual {
-    flex: none;
-    width: 100%;
-  }
-
-  .imageWrapper {
-    height: 45vh;
-    min-height: 280px;
-    max-height: 400px;
   }
 }
 

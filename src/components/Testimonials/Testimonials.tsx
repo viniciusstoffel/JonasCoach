@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useIntersectionObserver } from '@/lib/utils';
 import styles from './Testimonials.module.css';
 
@@ -9,18 +10,21 @@ const testimonials = [
     name: 'Mariana Costa',
     role: 'Empresária, 34 anos',
     initials: 'MC',
+    bgImage: '/assets/images/aluno.jpg',
   },
   {
     text: 'Depois dos 40, achei que era impossível recuperar minha saúde. O Jonas me provou o contrário. Hoje corro 10km, durmo melhor e me sinto 10 anos mais jovem!',
     name: 'Roberto Silva',
     role: 'Engenheiro, 45 anos',
     initials: 'RS',
+    bgImage: '/assets/images/aluno_3.jpg',
   },
   {
     text: 'O método do Jonas é diferente de tudo que já experimentei. Ele olha para a pessoa como um todo. Em 3 meses, minha ansiedade reduziu, meu corpo mudou e minha autoestima voltou.',
     name: 'Ana Paula Ribeiro',
     role: 'Professora, 29 anos',
     initials: 'AP',
+    bgImage: '/assets/images/aluno_2.jpg',
   },
 ];
 
@@ -42,25 +46,33 @@ export default function Testimonials() {
 
         <div className={`${styles.grid} ${isVisible ? styles.gridVisible : ''}`}>
           {testimonials.map((t, i) => (
-            <div
+              <div
               key={t.name}
               className={styles.card}
               style={{ transitionDelay: `${i * 150}ms` }}
             >
-              <span className={styles.quote}>&ldquo;</span>
-              <div className={styles.stars}>
-                {Array.from({ length: 5 }).map((_, j) => (
-                  <span key={j} className={styles.star}>★</span>
-                ))}
-              </div>
-              <p className={styles.text}>{t.text}</p>
-              <div className={styles.author}>
-                <div className={styles.avatar}>
-                  <span>{t.initials}</span>
+              {t.bgImage && (
+                <div className={styles.cardBg}>
+                  <Image src={t.bgImage} alt="" fill className={styles.bgImage} sizes="(max-width: 768px) 100vw, 33vw" />
+                  <div className={styles.bgOverlay} />
                 </div>
-                <div className={styles.authorInfo}>
-                  <strong className={styles.authorName}>{t.name}</strong>
-                  <span className={styles.authorRole}>{t.role}</span>
+              )}
+              <div className={styles.cardContent}>
+                <span className={styles.quote}>&ldquo;</span>
+                <div className={styles.stars}>
+                  {Array.from({ length: 5 }).map((_, j) => (
+                    <span key={j} className={styles.star}>★</span>
+                  ))}
+                </div>
+                <p className={styles.text}>{t.text}</p>
+                <div className={styles.author}>
+                  <div className={styles.avatar}>
+                    <span>{t.initials}</span>
+                  </div>
+                  <div className={styles.authorInfo}>
+                    <strong className={styles.authorName}>{t.name}</strong>
+                    <span className={styles.authorRole}>{t.role}</span>
+                  </div>
                 </div>
               </div>
             </div>

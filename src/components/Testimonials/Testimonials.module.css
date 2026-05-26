@@ -54,12 +54,33 @@
   padding: var(--space-2xl);
   transition: transform var(--duration-slow) var(--ease-out-expo), box-shadow var(--duration-slow) var(--ease-out-expo), border-color var(--duration-base) ease;
   position: relative;
+  overflow: hidden;
 }
 
 .card:hover {
   transform: translateY(-4px);
   border-color: rgba(var(--color-accent-rgb), 0.15);
   box-shadow: var(--shadow-lg);
+}
+
+.cardBg {
+  position: absolute;
+  inset: 0;
+}
+
+.bgImage {
+  object-fit: cover;
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.93) 0%, rgba(26, 26, 26, 0.6) 100%);
+}
+
+.cardContent {
+  position: relative;
+  z-index: 1;
 }
 
 .quote {
@@ -110,6 +131,8 @@
   font-weight: var(--fw-bold);
   font-size: var(--fs-small);
   flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .authorInfo {
