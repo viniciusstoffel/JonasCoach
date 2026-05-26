@@ -1,0 +1,188 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-navbar);
+  height: var(--navbar-h);
+  display: flex;
+  align-items: center;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  transition: background var(--duration-slow) ease, box-shadow var(--duration-slow) ease;
+}
+
+.navbar.scrolled {
+  background: rgba(10, 10, 10, 0.95);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--section-px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  z-index: calc(var(--z-navbar) + 10);
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: var(--fw-bold);
+  color: var(--color-white);
+  letter-spacing: var(--ls-wide);
+}
+
+.logoJ {
+  color: var(--color-accent);
+}
+
+.logoDot {
+  color: var(--color-accent);
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.link {
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  position: relative;
+  padding: var(--space-2xs) 0;
+  transition: color var(--duration-base) ease;
+}
+
+.link:hover {
+  color: var(--color-accent);
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transition: width var(--duration-base) var(--ease-out-expo);
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+.whatsappIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(var(--color-accent-rgb), 0.1);
+  color: var(--color-accent);
+  transition: background var(--duration-base) ease, transform var(--duration-base) var(--ease-spring), box-shadow var(--duration-base) ease;
+}
+
+.whatsappIcon:hover {
+  background: var(--color-accent);
+  color: var(--color-white);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(var(--color-accent-rgb), 0.4);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  z-index: calc(var(--z-navbar) + 10);
+  position: relative;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-white);
+  border-radius: var(--radius-full);
+  transition: transform var(--duration-base) var(--ease-out-expo), opacity var(--duration-fast) ease;
+  position: absolute;
+}
+
+.hamburger span:nth-child(1) { transform: translateY(-7px); }
+.hamburger span:nth-child(3) { transform: translateY(7px); }
+
+.hamburgerActive span:nth-child(1) { transform: translateY(0) rotate(45deg); }
+.hamburgerActive span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburgerActive span:nth-child(3) { transform: translateY(0) rotate(-45deg); }
+
+.overlay {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: calc(var(--z-navbar) - 1);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--duration-base) ease;
+  }
+
+  .overlayVisible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    height: 100vh;
+    height: 100dvh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-xl);
+    background: var(--color-bg-alt);
+    border-left: 1px solid var(--color-border);
+    transform: translateX(100%);
+    transition: transform var(--duration-slow) var(--ease-out-expo);
+    z-index: var(--z-navbar);
+    padding: var(--space-4xl) var(--space-xl);
+  }
+
+  .linksOpen {
+    transform: translateX(0);
+  }
+
+  .link {
+    font-size: var(--fs-h4);
+    letter-spacing: var(--ls-normal);
+    color: var(--color-white);
+  }
+}
