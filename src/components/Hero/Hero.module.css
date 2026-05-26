@@ -177,13 +177,26 @@
   .hero {
     min-height: auto;
     padding-top: calc(var(--navbar-h) + var(--space-md));
-    padding-bottom: 0;
+    padding-bottom: var(--space-xl);
     flex-direction: column;
     overflow: visible;
   }
 
   .imageBlock {
-    display: none;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .image {
+    filter: brightness(0.45) blur(1.5px);
+    object-fit: cover;
+  }
+
+  .imageFade {
+    background: rgba(0, 0, 0, 0.25);
   }
 
   .container {

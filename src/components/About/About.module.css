@@ -178,9 +178,10 @@
     position: relative;
     right: auto;
     bottom: auto;
-    width: 100%;
-    border-radius: 0;
-    padding: var(--space-md);
+    width: calc(100% + 2 * var(--section-px));
+    margin-left: calc(-1 * var(--section-px));
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg) var(--space-xl);
     flex-direction: row;
     gap: var(--space-sm);
     box-shadow: none;
