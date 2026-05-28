@@ -6,6 +6,7 @@ import Results from "@/components/Results/Results";
 import Benefits from "@/components/Benefits/Benefits";
 import Testimonials from "@/components/Testimonials/Testimonials";
 import Pricing from "@/components/Pricing/Pricing";
+import FreeAssessment from "@/components/FreeAssessment/FreeAssessment";
 import Faq from "@/components/Faq/Faq";
 import Contact from "@/components/Contact/Contact";
 import Footer from "@/components/Footer/Footer";
@@ -23,6 +24,7 @@ export default function Home() {
         <Benefits />
         <Testimonials />
         <Pricing />
+        <FreeAssessment />
         <Faq />
         <Contact />
       </main>
